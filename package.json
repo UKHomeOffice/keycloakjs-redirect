@@ -1,0 +1,30 @@
+{
+  "name": "keycloak-redirect",
+  "version": "1.0.0",
+  "description": "keycloak redirect",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/mocha ./tests/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UKHomeOffice/keycloakjs-redirect.git"
+  },
+  "author": "Ollie Nilsen",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/UKHomeOffice/keycloakjs-redirect/issues"
+  },
+  "homepage": "https://github.com/UKHomeOffice/keycloakjs-redirect#readme",
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "cover": "^0.2.9",
+    "istanbul": "^0.4.2",
+    "mocha": "^2.4.4",
+    "sinon": "^1.17.3",
+    "sinon-chai": "^2.8.0"
+  }
+}
