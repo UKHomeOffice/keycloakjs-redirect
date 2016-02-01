@@ -14,7 +14,7 @@
     "url": "git+https://github.com/UKHomeOffice/keycloakjs-redirect.git"
   },
   "author": "Ollie Nilsen",
-  "license": "GPL-3.0",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/UKHomeOffice/keycloakjs-redirect/issues"
   },
