@@ -1,0 +1,23 @@
+{
+  "name": "keycloak-redirect",
+  "description": "keycloak redirect",
+  "main": "index.js",
+  "authors": [
+    "Ollie Nilsen"
+  ],
+  "license": "GPL-3.0",
+  "keywords": [
+    "keycloak"
+  ],
+  "homepage": "https://github.com/OllieNilsen/keycloak-redirect",
+  "moduleType": [
+    "node"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

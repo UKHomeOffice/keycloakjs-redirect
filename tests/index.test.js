@@ -1,16 +1,17 @@
-var config, window, location, client;
+var config, window, lib, client;
 var EventEmitter = require('events').EventEmitter;
-var lib = require('../index.js');
 
 describe("UNIT keycloak-redirect index.js", function () {
   before(function () {
     config = {};
     global.window = {location: "WL"}
+    require('../index.js');
+    lib = global.window.keycloakRedirect;
 
     client = new EventEmitter;
     client.withCredentials = false;
-    client.open = sinon.spy();
-    client.send = sinon.spy();
+    client.open = sinon.stub();
+    client.send = sinon.stub();
   });
 
   describe('authenticate', function () {
