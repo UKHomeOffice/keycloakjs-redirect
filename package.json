@@ -1,30 +1,42 @@
 {
   "name": "keycloak-redirect",
-  "version": "1.0.0",
-  "description": "keycloak redirect",
+  "version": "1.0.1",
+  "description": "keycloak redirect browserify",
   "main": "index.js",
-  "directories": {
-    "test": "tests"
-  },
-  "scripts": {
-    "test": "mocha ./tests/"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/UKHomeOffice/keycloakjs-redirect.git"
-  },
-  "author": "Ollie Nilsen",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/UKHomeOffice/keycloakjs-redirect/issues"
-  },
-  "homepage": "https://github.com/UKHomeOffice/keycloakjs-redirect#readme",
+  "directories": {},
   "devDependencies": {
+    "browserify": "13.0.0",
     "chai": "^3.4.1",
     "cover": "^0.2.9",
     "istanbul": "^0.4.2",
     "mocha": "^2.4.4",
     "sinon": "^1.17.3",
     "sinon-chai": "^2.8.0"
-  }
+  },
+  "scripts": {
+    "test": "mocha ./tests.js",
+    "build-debug": "browserify lib/main.js -d --s keycloakRedirect > dist/bundle.js",
+    "build-min": "browserify lib/main.js --s keycloakRedirect | uglifyjs -c > dist/bundle.min.js",
+    "build": "npm run build-debug && npm run build-min",
+    "watch": "watchify lib/main.js -d --s keycloakRedirect -o dist/bundle.js -v"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UKHomeOffice/keycloakjs-redirect.git"
+  },
+  "contributors": [
+    {
+      "name": "Ollie Nilsen",
+      "email": "oystein.nilsen@wtg.co.uk"
+    },
+    {
+      "name": "Chelsea Sanders",
+      "email": "cksanders1@gmail.com"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/UKHomeOffice/keycloakjs-redirect/issues"
+  },
+  "homepage": "https://github.com/UKHomeOffice/keycloakjs-redirect#readme"
 }
