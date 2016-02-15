@@ -9,24 +9,26 @@ A js frontend uses a backend api which, in turn,  connects to keycloak for user 
 ## Install
 
 ```bash
-$ bower install UKHomeOffice/keycloakjs-redirect -S
+$ npm i keycloak-redirect
 ```
 
 ## Usage of the library
 
-Include the dist/bundle.js or dist/bundle.min.js file in the page, then use the `keycloakRedirect` variable that was exposed using Browserify.
-
-`keycloakRedirect` is an object that returns the method `authenticate`. Pass in a config object and a XMLHttpRequest object.
+Require the package, then use the object that was exposed using Browserify to return the function `authenticate`, passing in both mandatory arguments: a config object and a XMLHttpRequest object.
 
 ```js
     
+   const keycloakRedirect = require('keycloak-redirect');
+   
    var config = {
        backend: "http://yourBackendUrl.com",
        clientId: "yourClientId",
        keycloakUrl: "http://yourKeycloakUrl.com"
    };
    
-   keycloakRedirect.authenticate(config, new XMLHttpRequest());
+   var client = new XMLHttpRequest();
+   
+   keycloakRedirect.authenticate(config, client);
 ```
 
 the `backend`, `clientId` and `keycloakUrl` keys on the config object are mandatory.
