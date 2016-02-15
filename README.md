@@ -9,7 +9,7 @@ A js frontend uses a backend api which, in turn,  connects to keycloak for user 
 ## Install
 
 ```bash
-$ bower install UKHomeOffice/keycloakjs-redirect -S
+$ npm i keycloak-redirect
 ```
 
 ## Usage of the library
