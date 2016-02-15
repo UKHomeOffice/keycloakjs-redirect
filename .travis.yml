@@ -1,6 +1,8 @@
 language: node_js
 node_js:
 - 4.2.2
+before_deploy:
+  - npm --no-git-tag-version version $TRAVIS_TAG
 deploy:
   provider: npm
   email: cksanders1@gmail.com
