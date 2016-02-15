@@ -12,8 +12,11 @@ A js frontend uses a backend api which, in turn,  connects to keycloak for user 
 $ bower install UKHomeOffice/keycloakjs-redirect -S
 ```
 
-## Usage
-Makes available a global `keycloakRedirect` object with an `authenticate` method. Pass in a config object and a XMLHttpRequest object.
+## Usage of the library
+
+Include the dist/bundle.js or dist/bundle.min.js file in the page, then use the `keycloakRedirect` variable that was exposed using Browserify.
+
+`keycloakRedirect` is an object that returns the method `authenticate`. Pass in a config object and a XMLHttpRequest object.
 
 ```js
     
@@ -28,9 +31,34 @@ Makes available a global `keycloakRedirect` object with an `authenticate` method
 
 the `backend`, `clientId` and `keycloakUrl` keys on the config object are mandatory.
 
-## Tests
+## Run the build scripts
+
+Create the debug build of the library:
 
 ```bash
-$ npm install
+$ npm run build-debug
+```
+
+Create the minified build:
+
+```bash
+$ npm run build-min
+```
+
+Create both the debug and minified builds:
+
+```bash
+$ npm run build
+```
+
+Watch the main file for changes and automatically regenerate the debug build:
+
+```bash
+$ npm run watch
+```
+
+## Run Tests
+
+```bash
 $ npm test
 ```
