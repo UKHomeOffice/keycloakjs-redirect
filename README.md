@@ -23,7 +23,7 @@ Require the package, then use the object that was exposed using Browserify to re
    var config = {
        backend: "http://yourBackendUrl.com",
        clientId: "yourClientId",
-       keycloakUrl: "http://yourKeycloakUrl.com"
+       keycloakUrl: "http://yourKeycloakUrl.com" // for testing environment update to: {boolean} false
    };
    
    var client = new XMLHttpRequest();
