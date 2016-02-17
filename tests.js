@@ -4,11 +4,12 @@ var sinon = require('sinon');
 var EventEmitter = require('events').EventEmitter;
 var keycloakRedirect = require('./');
 var client;
+var window;
 
 describe("UNIT keycloak-redirect index.js", function() {
   before(function() {
     var config = {};
-    global.window = {location: "WL"};
+    window = {location: "WL"};
 
     client = new EventEmitter;
     client.withCredentials = false;
@@ -65,17 +66,17 @@ describe("UNIT keycloak-redirect index.js", function() {
 
     describe('Redirect if query parameter "code" is not set.', function() {
       it('should redirect if there is no "code" parameter.', function() {
-        keycloakRedirect.authenticate(config, client);
+        keycloakRedirect.authenticate(config, client, window);
         client.onerror();
-        expect(global.window.location).to.equal(
+        expect(window.location).to.equal(
           'keycloakUrl' + encodeURI("?redirect_uri=WL&client_id=clientId&response_type=code")
         );
       });
       it('should not redirect if the "code" parameter is set', function() {
-        global.window.location = "WL?code=abc";
-        keycloakRedirect.authenticate(config, client);
+        window.location = "WL?code=abc";
+        keycloakRedirect.authenticate(config, client, window);
         client.onerror();
-        expect(global.window.location).to.equal("WL?code=abc");
+        expect(window.location).to.equal("WL?code=abc");
       })
     });
 
@@ -83,14 +84,14 @@ describe("UNIT keycloak-redirect index.js", function() {
 
   describe('getParameterByName', function() {
     before(function() {
-      global.window.location = "http://abc.com?par1=a&par2=b";
+      window.location = "http://abc.com?par1=a&par2=b";
     })
     it('should return the values of the parameters passed.', function() {
-      expect(keycloakRedirect.getParameterByName('par1')).to.equal('a');
-      expect(keycloakRedirect.getParameterByName('par2')).to.equal('b');
+      expect(keycloakRedirect.getParameterByName('par1', window.location)).to.equal('a');
+      expect(keycloakRedirect.getParameterByName('par2', window.location)).to.equal('b');
     });
     it('should return the empty string for missing parameters.', function() {
-      expect(keycloakRedirect.getParameterByName('par3')).to.equal('');
+      expect(keycloakRedirect.getParameterByName('par3', window.location)).to.equal('');
     })
   });
 });

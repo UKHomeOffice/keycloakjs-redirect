@@ -14,7 +14,7 @@ $ npm i keycloak-redirect
 
 ## Usage of the library
 
-Require the package, then use the object that was exposed using Browserify to return the function `authenticate`, passing in both mandatory arguments: a config object and a XMLHttpRequest object.
+Require the package, then use the object that was exposed using Browserify to return the function `authenticate`, passing in all mandatory arguments: a config object, a XMLHttpRequest object, and window.
 
 ```js
     
@@ -28,7 +28,7 @@ Require the package, then use the object that was exposed using Browserify to re
    
    var client = new XMLHttpRequest();
    
-   keycloakRedirect.authenticate(config, client);
+   keycloakRedirect.authenticate(config, client, window);
 ```
 
 the `backend`, `clientId` and `keycloakUrl` keys on the config object are mandatory.
