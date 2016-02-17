@@ -19,8 +19,7 @@
     "build-debug": "browserify lib/main.js -d --s keycloakRedirect > dist/bundle.js",
     "build-min": "browserify lib/main.js --s keycloakRedirect | uglifyjs -c > dist/bundle.min.js",
     "build": "npm run build-debug && npm run build-min",
-    "watch": "watchify lib/main.js -d --s keycloakRedirect -o dist/bundle.js -v",
-    "postinstall": "npm run build"
+    "watch": "watchify lib/main.js -d --s keycloakRedirect -o dist/bundle.js -v"
   },
   "repository": {
     "type": "git",
