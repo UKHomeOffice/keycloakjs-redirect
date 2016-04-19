@@ -8,6 +8,7 @@
     "browserify": "13.0.0",
     "chai": "^3.4.1",
     "cover": "^0.2.9",
+    "eslint": "^1.5.1",
     "istanbul": "^0.4.2",
     "mocha": "^2.4.4",
     "precommit": "^1.2.0",
@@ -16,7 +17,8 @@
   },
   "precommit": {
     "tasks": [
-      "npm test"
+      "npm test",
+      "npm run lint"
     ],
     "onDirtyState": "ask",
     "coloredOutput": true
@@ -26,6 +28,7 @@
     "build-debug": "browserify lib/main.js -d --s keycloakRedirect > dist/bundle.js",
     "build-min": "browserify lib/main.js --s keycloakRedirect > dist/bundle.min.js",
     "build": "npm run build-debug && npm run build-min",
+    "lint": "eslint .",
     "postinstall": "precommit install",
     "watch": "watchify lib/main.js -d --s keycloakRedirect -o dist/bundle.js -v"
   },
