@@ -10,14 +10,23 @@
     "cover": "^0.2.9",
     "istanbul": "^0.4.2",
     "mocha": "^2.4.4",
+    "precommit": "^1.2.0",
     "sinon": "^1.17.3",
     "sinon-chai": "^2.8.0"
+  },
+  "precommit": {
+    "tasks": [
+      "npm test"
+    ],
+    "onDirtyState": "ask",
+    "coloredOutput": true
   },
   "scripts": {
     "test": "mocha ./tests.js",
     "build-debug": "browserify lib/main.js -d --s keycloakRedirect > dist/bundle.js",
     "build-min": "browserify lib/main.js --s keycloakRedirect > dist/bundle.min.js",
     "build": "npm run build-debug && npm run build-min",
+    "postinstall": "precommit install",
     "watch": "watchify lib/main.js -d --s keycloakRedirect -o dist/bundle.js -v"
   },
   "repository": {
