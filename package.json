@@ -11,13 +11,12 @@
     "istanbul": "^0.4.2",
     "mocha": "^2.4.4",
     "sinon": "^1.17.3",
-    "sinon-chai": "^2.8.0",
-    "uglifyjs": "^2.4.10"
+    "sinon-chai": "^2.8.0"
   },
   "scripts": {
     "test": "mocha ./tests.js",
     "build-debug": "browserify lib/main.js -d --s keycloakRedirect > dist/bundle.js",
-    "build-min": "browserify lib/main.js --s keycloakRedirect | uglifyjs -c > dist/bundle.min.js",
+    "build-min": "browserify lib/main.js --s keycloakRedirect > dist/bundle.min.js",
     "build": "npm run build-debug && npm run build-min",
     "watch": "watchify lib/main.js -d --s keycloakRedirect -o dist/bundle.js -v"
   },
