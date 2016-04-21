@@ -1,8 +1,5 @@
-"use strict";
-
-const unauthorizedCode = 401;
-
 (function () {
+  const UNAUTHORIZED = 401;
   var keycloakRedirect = {
     authenticate: (config, client, window) => {
       if (config.backend === void 0) {
@@ -18,7 +15,7 @@ const unauthorizedCode = 401;
       client.withCredentials = true;
       client.open("GET", config.backend, true);
       client.send();
-      if (client.status === unauthorizedCode) {
+      if (client.status === UNAUTHORIZED) {
         window.location = config.keycloakUrl + encodeURI(`?redirect_uri="${window.location}"&client_id="${config.clientId}"&response_type=code`);
       }
     }

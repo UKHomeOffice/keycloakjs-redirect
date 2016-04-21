@@ -255,6 +255,9 @@
     "mocha": true,
     "browser": false
   },
+  "ecmaFeatures": {
+    "modules": true
+  },
   "globals": {
     "reverseRouteService": true,
     "Centres": true,

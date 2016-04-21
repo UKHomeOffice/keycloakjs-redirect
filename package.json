@@ -1,11 +1,13 @@
 {
   "name": "keycloak-redirect",
-  "version": "1.0.1",
+  "version": "1.1.7",
   "description": "keycloak redirect browserify",
-  "main": "index.js",
+  "main": "dist/main.js",
   "directories": {},
   "devDependencies": {
-    "browserify": "13.0.0",
+    "babel-cli": "^6.7.7",
+    "babel-preset-es2015": "^6.6.0",
+    "babel-preset-stage-0": "^6.5.0",
     "chai": "^3.4.1",
     "cover": "^0.2.9",
     "eslint": "^1.5.1",
@@ -24,12 +26,10 @@
     "coloredOutput": true
   },
   "scripts": {
-    "test": "mocha ./tests.js",
-    "build-debug": "browserify lib/main.js -d --s keycloakRedirect > dist/bundle.js",
-    "build-min": "browserify lib/main.js --s keycloakRedirect > dist/bundle.min.js",
-    "build": "npm run build-debug && npm run build-min",
+    "compile": "babel --presets es2015,stage-0 -d dist/ src/",
     "lint": "eslint .",
-    "watch": "watchify lib/main.js -d --s keycloakRedirect -o dist/bundle.js -v"
+    "prepublish": "npm run compile",
+    "test": "mocha ./tests.js"
   },
   "repository": {
     "type": "git",
