@@ -28,3 +28,14 @@ Import the package, then use the object exposed to return the function `authenti
    
    keycloakRedirect.authenticate(config, new XMLHttpRequest(), $window);
 ```
+
+## Run Tests
+
+```bash
+$ npm test
+```
+
+## Compile the code with babel
+```bash
+$ npm run compile
+```
