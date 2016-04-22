@@ -1,12 +1,10 @@
-'use strict';
-
 var chai = require('chai').use(require('sinon-chai'));
 var expect = chai.expect;
 var sinon = require('sinon');
 var EventEmitter = require('events').EventEmitter;
-var keycloakRedirect = require('./');
+var keycloakRedirect = require('./src/main.js');
 
-describe("UNIT keycloak-redirect index.js", function () {
+describe("UNIT keycloak-redirect", function () {
   var client;
   var config;
 
