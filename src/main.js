@@ -13,7 +13,7 @@
       }
 
       client.withCredentials = true;
-      client.open("GET", config.backend, true);
+      client.open("GET", config.backend + "/oauth/expired", true);
       client.send();
       if (client.status === UNAUTHORIZED) {
         window.location = config.keycloakUrl + encodeURI(`?redirect_uri="${window.location}"&client_id="${config.clientId}"&response_type=code`);

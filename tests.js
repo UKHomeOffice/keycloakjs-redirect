@@ -44,7 +44,7 @@ describe("UNIT keycloak-redirect", function () {
       });
 
       it("should call client.open() and client.send.", () => {
-        expect(client.open).to.have.been.calledWith("GET", 'backend', true);
+        expect(client.open).to.have.been.calledWith("GET", 'backend' + "/oauth/expired", true);
         expect(client.send).to.have.been.called;
       });
 
