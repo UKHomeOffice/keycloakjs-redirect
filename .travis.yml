@@ -2,7 +2,6 @@ language: node_js
 node_js:
 - 4.2.2
 before_deploy:
-  - npm run build
   - npm --no-git-tag-version version $TRAVIS_TAG
 deploy:
   provider: npm
