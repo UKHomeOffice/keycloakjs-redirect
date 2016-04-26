@@ -18,7 +18,7 @@
       client.send();
       client.onreadystatechange = () => {
         if (client.readyState === REQUEST_FINISHED && client.status === UNAUTHORIZED) {
-          window.location = config.keycloakUrl + encodeURI("?redirect_uri=\"" + window.location + "\"&client_id=\"" + config.clientId + "\"&response_type=code");
+          window.location = config.keycloakUrl + encodeURI(`?redirect_uri="${window.location}"&client_id="${config.clientId}"&response_type=code`);
         }
       };
     }
