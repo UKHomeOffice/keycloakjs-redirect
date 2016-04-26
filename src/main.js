@@ -1,5 +1,6 @@
 (function () {
   const UNAUTHORIZED = 401;
+  const REQUEST_FINISHED = 4;
   var keycloakRedirect = {
     authenticate: (config, client, window) => {
       if (config.backend === void 0) {
@@ -15,9 +16,11 @@
       client.withCredentials = true;
       client.open("GET", config.backend + "/oauth/expired", true);
       client.send();
-      if (client.status === UNAUTHORIZED) {
-        window.location = config.keycloakUrl + encodeURI(`?redirect_uri="${window.location}"&client_id="${config.clientId}"&response_type=code`);
-      }
+      client.onreadystatechange = () => {
+        if (client.readyState === REQUEST_FINISHED && client.status === UNAUTHORIZED) {
+          window.location = config.keycloakUrl + encodeURI("?redirect_uri=\"" + window.location + "\"&client_id=\"" + config.clientId + "\"&response_type=code");
+        }
+      };
     }
   };
   module.exports = keycloakRedirect;
